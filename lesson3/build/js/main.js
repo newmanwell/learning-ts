@@ -1,4 +1,5 @@
 "use strict";
+// Arrays, Tuples, Objects, Enums
 let stringArr = ['one', 'yellow', 'Shaun'];
 let bands = ['Oasis', 'Cage The Elephant', 73];
 let mixedData = ['RATM', 69420, false];
@@ -57,3 +58,16 @@ const greetManager = (manager) => {
 };
 console.log(greetShopper(mmm));
 console.log(greetManager(smj));
+// Enums
+// Unlike most TypeScript features, Enums are not a
+// type-level addition to JavaScript but something
+// added to the language and runtime
+var Grade;
+(function (Grade) {
+    Grade[Grade["U"] = 14] = "U";
+    Grade[Grade["D"] = 15] = "D";
+    Grade[Grade["C"] = 16] = "C";
+    Grade[Grade["B"] = 17] = "B";
+    Grade[Grade["A"] = 18] = "A";
+})(Grade || (Grade = {}));
+console.log(Grade.U);
