@@ -1,73 +1,52 @@
 "use strict";
-// Arrays, Tuples, Objects, Enums
-let stringArr = ['one', 'yellow', 'Shaun'];
-let bands = ['Oasis', 'Cage The Elephant', 73];
-let mixedData = ['RATM', 69420, false];
-stringArr[0] = 'Phil';
-// stringArr[1] = 55; nope, strings only
-// stringArr.push(false); still strings only
-bands[1] = 4444;
-bands.unshift('Bad Company');
-// stringArr = bands; bands has a number
-bands = stringArr;
-let newArray = [];
-let countries = [];
-countries.push('United Kingdom');
-// countries.push(false); pushing a boolean to a string array
-// Tuples
-let myTuple = ['Shaun', 47, false];
-let mixed = ['Maureen', 2, true];
-// mixed = myTuple; allowed, proper types in order
-// myTuple = mixed not allowed because mixed can have less/more than three elements
-// myTuple[3] = 'whatever' myTuple can only have three elements
-myTuple[2] = true;
-// Objects
-let myObject;
-myObject = []; // Ok because an array is a object
-console.log(typeof myObject);
-myObject = countries;
-myObject = {};
-const someObject = {
-    name: 'Shaun',
-    working: false
+// interface postId = stringOrNumber does not work, used more for classes or objects
+// Literal types
+let myName;
+// myName = = 'Billy' can't change type
+let allNames;
+allNames = 'Maureen';
+// Functions
+const multiply = (num1, num2) => {
+    return num1 * num2;
 };
-let spn = {
-    name: 'Shaun',
-    inStore: false,
-    sizes: ['L', 11]
+// void is the type if a function does not return anything
+const theMessage = (message) => {
+    console.log(message);
 };
-let mmm = {
-    name: 'Maureen',
-    sizes: ['S', 4, 6]
+theMessage('Sup?');
+theMessage(multiply(69, 420));
+// theMessage(multiply(2, "w")); can't pass a tring for type number
+// function delaration is ok too!
+const divide = function (num3, num4) {
+    return num3 / num4;
 };
-let smj = {
-    // name: 'Sean',
-    working: true,
-    yearsEmployed: 3
+theMessage(divide(69, 420));
+const add = function (a, b) {
+    return a + b;
 };
-// spn.age = 47 can't add properties
-const greetShopper = (shopper) => {
-    return `Good afternoon ${shopper.name}!!`;
+theMessage(add(69, 420));
+const subtract = (c, d) => {
+    return c - d;
 };
-const greetManager = (manager) => {
-    // since name is allowed to be undefined in Managers
-    if (manager.name) {
-        return `Get to work ${manager.name}`;
+theMessage(subtract(69, 420));
+// optional parameters
+//                                          ? makes it optional and must come last
+const addAll = (num1, num2, num3) => {
+    if (num3) {
+        return num1 + num2 + num3;
     }
-    return `Who is in charge?`;
+    return num1 + num2;
 };
-console.log(greetShopper(mmm));
-console.log(greetManager(smj));
-// Enums
-// Unlike most TypeScript features, Enums are not a
-// type-level addition to JavaScript but something
-// added to the language and runtime
-var Grade;
-(function (Grade) {
-    Grade[Grade["U"] = 14] = "U";
-    Grade[Grade["D"] = 15] = "D";
-    Grade[Grade["C"] = 16] = "C";
-    Grade[Grade["B"] = 17] = "B";
-    Grade[Grade["A"] = 18] = "A";
-})(Grade || (Grade = {}));
-console.log(Grade.U);
+//                                             default value if no number is passed in
+const addingAll = (num1, num2, num3 = 69) => {
+    return num1 + num2 + num3;
+};
+theMessage(addAll(2, 4));
+theMessage(addAll(2, 4, 6));
+theMessage(addingAll(2, 4));
+theMessage(addingAll(2, 4, 10));
+// Rest Parameters
+const total = (num1, ...nums) => {
+    return num1 + nums.reduce((pre, cur) => pre + cur);
+};
+theMessage(total(69, 420, 55));
