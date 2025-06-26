@@ -16,3 +16,8 @@ type userId = stringOrNumber;
 
 // Literal types
 
+let myName: 'Shaun';
+// myName = = 'Billy' can't change type
+
+let allNames: 'Shaun' | 'Maureen' | 'Billy';
+allNames = 'Maureen'
