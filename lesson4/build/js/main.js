@@ -50,3 +50,26 @@ const total = (num1, ...nums) => {
     return num1 + nums.reduce((pre, cur) => pre + cur);
 };
 theMessage(total(69, 420, 55));
+// Never type
+const createError = (err) => {
+    throw new Error(err);
+};
+// never could be an endless loop
+const foreverFunction = () => {
+    let i = 1;
+    while (true) {
+        i++;
+    }
+};
+// custom type guard
+const isNumber = (value) => {
+    return typeof value === 'number' ? true : false;
+};
+// using never type (because create error can NEVER happen)
+const numberOroString = (value) => {
+    if (typeof value === 'string')
+        return 'STRING!!';
+    if (isNumber(value))
+        return 'NUMBER!!';
+    return createError('Blahhhhhhh'); // never type
+};

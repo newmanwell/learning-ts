@@ -86,4 +86,31 @@ const total = (num1: number, ...nums: number[]): number => {
   return num1 + nums.reduce((pre, cur) => pre + cur);
 }
 
-theMessage(total(69, 420, 55))
+theMessage(total(69, 420, 55));
+
+// Never type
+
+const createError = (err: string): never => {
+  throw new Error(err);
+}
+
+// never could be an endless loop
+const foreverFunction = () => {
+  let i: number = 1
+  while (true) {
+    i++
+  }
+}
+
+// custom type guard
+const isNumber = (value: any): boolean => {
+  return typeof value === 'number' ? true : false
+}
+
+// using never type (because create error can NEVER happen)
+const numberOroString = (value: number | string): string =>  {
+  if (typeof value === 'string') return 'STRING!!';
+  if (isNumber(value)) return 'NUMBER!!';
+  return createError('Blahhhhhhh') // never type
+}
+
