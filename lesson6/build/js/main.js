@@ -49,3 +49,21 @@ class Football {
 }
 const Caleb = new Football('Caleb', 'QB');
 console.log(Caleb.play('throws'));
+// Static Class
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count; // ++ being before means id will be 1, if after count will be 0
+    }
+}
+Peeps.count = 0;
+console.log(Peeps.count);
+const Willy = new Peeps('Willy');
+const Mike = new Peeps('Mike');
+const Phil = new Peeps('Phil');
+console.log(Peeps.count);
+console.log(Willy.id);

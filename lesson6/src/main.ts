@@ -75,4 +75,28 @@ console.log(Caleb.play('throws'));
 
 
 
+// Static Class
 
+class Peeps {
+  static count: number = 0;
+
+  static getCount(): number {
+    return Peeps.count;
+  }
+
+  public id: number
+
+  constructor(public name: string) {
+    this.name = name;
+    this.id = ++Peeps.count; // ++ being before means id will be 1, if after count will be 0
+  }
+}
+
+console.log(Peeps.count);
+
+const Willy = new Peeps('Willy');
+const Mike = new Peeps('Mike');
+const Phil = new Peeps('Phil');
+
+console.log(Peeps.count);
+console.log(Willy.id);
