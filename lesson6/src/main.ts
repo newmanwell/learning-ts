@@ -34,5 +34,45 @@ class SomeGuy {                                                                 
 const Shaun = new SomeGuy('Shaun', 47, 'Jacksonville', true);
 const Jim = new SomeGuy('Jim', 68, 'London'); // used default value for isTall
 
-console.log(Shaun.getTallness);
+console.log(Shaun.getTallness());
 // console.log(Shaun.isTall); nope, isTall is private
+
+class SomeGal extends SomeGuy {
+  constructor(public hairColor: string, name: string, age: number, city: string) {
+    super(name, age, city); // super grabs from SomeGuy and must be before hairColor
+    this.hairColor = hairColor;
+  }
+}
+
+const Maureen = new SomeGal('Brown', 'Maureen', 39, 'Jacksonville');
+
+
+
+
+
+interface Player {
+  name: string,
+  position: string,
+  play(action: string): string;
+}
+
+class Football implements Player {
+ 
+  constructor(public name: string, public position: string) {
+    this.name = name;
+    this.position = position;
+  }
+
+  play(action: string) {
+    return `${this.name} ${action} as a ${this.position}`;
+  }
+}
+
+const Caleb = new Football('Caleb', 'QB');
+console.log(Caleb.play('throws'));
+
+
+
+
+
+
