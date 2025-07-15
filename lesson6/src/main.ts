@@ -48,7 +48,7 @@ const Maureen = new SomeGal('Brown', 'Maureen', 39, 'Jacksonville');
 
 
 
-
+// Implements
 
 interface Player {
   name: string,
@@ -100,3 +100,35 @@ const Phil = new Peeps('Phil');
 
 console.log(Peeps.count);
 console.log(Willy.id);
+
+
+
+
+
+
+// Getters and Setters
+
+class Teams {
+  private dataState: string[];
+
+  constructor() {
+    this.dataState = [];
+  }
+
+  public get data(): string[] {
+    return this.dataState;
+  }
+
+  public set data(value: string[]) {
+    if (Array.isArray(value) && value.every(element => typeof element === 'string')){
+      this.dataState = value;
+      return 
+    } else throw new Error('Must be an array of strings');
+  }
+}
+
+const FavTeams = new Teams;
+FavTeams.data = ['Bears', 'Bulls', 'Blackhawks', 'White Sox', 'Jaguars'];
+console.log(FavTeams.data);
+FavTeams.data = [...FavTeams.data, 'Cubs'];
+console.log(FavTeams.data);
