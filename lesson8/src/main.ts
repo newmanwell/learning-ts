@@ -134,3 +134,27 @@ console.log(getUsersProperty(usersArray, "phone"));
 
 
 
+class StateObject<T> {
+  private data: T
+
+  constructor(value: T) {
+    this.data = value;
+  }
+
+  get state(): T {
+    return this.data;
+  }
+
+  set state(value: T) {
+    this.data = value;
+  }
+}
+
+const store = new StateObject("Something");
+console.log(store.state);
+store.state = "Some other string" // OK because it is still a string
+// store.state = 69 not ok because store.state is now and forever a string
+const newState = new StateObject<(number | string | boolean)[]>([true]);
+console.log(newState.state);
+newState.state = [1, 'Bill', false];
+console.log(newState.state);
