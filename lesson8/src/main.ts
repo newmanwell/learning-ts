@@ -20,3 +20,28 @@ console.log(isObject('oasis'));
 console.log(isObject([1, 2, 3]));
 console.log(isObject(null));
 console.log(isObject({name: 'Patrick'}));
+
+const isTrue = <T>(arg: T): {arg: T, is: boolean} => {
+  if (Array.isArray(arg) && !arg.length) {
+    return {arg, is: false};
+  }
+
+  if (isObject(arg) && !Object.keys(arg as keyof T).length) {
+    return {arg, is: false};
+  }
+  return {arg, is: !!arg};
+}
+
+console.log(isTrue(false));
+console.log(isTrue(null));
+console.log(isTrue(undefined));
+console.log(isTrue(41));
+console.log(isTrue(''));
+console.log(isTrue([1, 3, 5]));
+console.log(isTrue(NaN));
+console.log(isTrue({ name: 'Shaun'}));
+console.log(isTrue([]));
+console.log(isTrue(-0));
+console.log(isTrue({}));
+console.log(isTrue(true));
+
