@@ -45,3 +45,32 @@ console.log(isTrue(-0));
 console.log(isTrue({}));
 console.log(isTrue(true));
 
+
+// With an interface as its type
+interface BooleanCheck<T> {
+  value: T,
+  is: boolean
+}
+
+const checkingBoolValue = <T>(arg: T): BooleanCheck<T> => {
+  if (Array.isArray(arg) && !arg.length) {
+    return {value: arg, is: false};
+  }
+
+  if (isObject(arg) && !Object.keys(arg as keyof T).length) {
+    return {value: arg, is: false};
+  }
+  return {value: arg, is: !!arg};
+}
+
+interface HasID {
+  id: number
+}
+
+const processUser = <T extends HasID>(user: T): T => {
+  // logic to process user
+  return user;
+}
+
+console.log(processUser({id: 0, name: 'Eric'}));
+// console.log(processUser({ name: 'Eric'})); throws error becuse no ID key

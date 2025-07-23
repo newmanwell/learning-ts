@@ -38,3 +38,18 @@ console.log(isTrue([]));
 console.log(isTrue(-0));
 console.log(isTrue({}));
 console.log(isTrue(true));
+const checkingBoolValue = (arg) => {
+    if (Array.isArray(arg) && !arg.length) {
+        return { value: arg, is: false };
+    }
+    if (isObject(arg) && !Object.keys(arg).length) {
+        return { value: arg, is: false };
+    }
+    return { value: arg, is: !!arg };
+};
+const processUser = (user) => {
+    // logic to process user
+    return user;
+};
+console.log(processUser({ id: 0, name: 'Eric' }));
+// console.log(processUser({ name: 'Eric'})); throws error becuse no ID key
