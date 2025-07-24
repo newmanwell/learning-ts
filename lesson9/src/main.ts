@@ -59,3 +59,19 @@ const combineStats: Record<Atheletes, Combine> = {
   Shaun: {dash: 4.49, coneDrill: 8.9},
   Phillip: {dash: 4.38, coneDrill: 8.2}
 }
+
+// Pick and Omit
+                                     // picking what we want out of Assignment
+type AssignResult = Pick<Assignment, "studentId" | "grade">;
+
+const newScore: AssignResult = {
+  studentId: "def456",
+  grade: 99.99
+}
+                                      // omits what we hate
+type AssignPreview = Omit<Assignment, "grade" | "verified">;
+
+const preview: AssignPreview = {
+  studentId: "69420",
+  title: "lesson 999"
+}

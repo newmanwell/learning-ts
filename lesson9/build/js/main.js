@@ -32,3 +32,11 @@ const combineStats = {
     Shaun: { dash: 4.49, coneDrill: 8.9 },
     Phillip: { dash: 4.38, coneDrill: 8.2 }
 };
+const newScore = {
+    studentId: "def456",
+    grade: 99.99
+};
+const preview = {
+    studentId: "69420",
+    title: "lesson 999"
+};
