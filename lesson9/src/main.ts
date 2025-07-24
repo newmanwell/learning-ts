@@ -81,3 +81,8 @@ const preview: AssignPreview = {
 type removedSports = Exclude<Sports, "Hockey">;
 
 type americanSports = Extract<Sports, "Baseball" | "Football" | "Basketball">;
+
+// Nonnullable
+
+type AllPossibleSports = 'Willy' | 'Frank' | null | undefined;
+type NamesOnly = NonNullable<AllPossibleSports>;
