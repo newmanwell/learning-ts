@@ -33,3 +33,29 @@ const assignVerified: Readonly<Assignment> = {...assignGraded, verified: false};
 // assignVerified.title = "Lesson 69" not allowed because assignVerified is readonly
 // recordAssignment(assignGraded) not allowed because recordAssignment is required for all properties and assignGraded only has grade
 recordAssignment({...assignGraded, verified: false});
+
+// Record
+
+const hexColorMap: Record<string, string> = {
+  red: "FF0000",
+  green: "00FF00",
+  blue: "0000FF"
+}
+
+type Atheletes = "Shaun" | "Phillip";
+type Sports = "Baseball" | "Football" | "Basketball" | "Hockey";
+
+const whatSport: Record<Atheletes, Sports> = {
+  Shaun: "Football",
+  Phillip: "Hockey"
+}
+
+interface Combine {
+  dash: number,
+  coneDrill: number
+}
+
+const combineStats: Record<Atheletes, Combine> = {
+  Shaun: {dash: 4.49, coneDrill: 8.9},
+  Phillip: {dash: 4.38, coneDrill: 8.2}
+}
