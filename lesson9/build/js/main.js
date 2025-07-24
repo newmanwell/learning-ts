@@ -47,3 +47,6 @@ const createNewAssign = (title, points) => {
 };
 const tsAssign = createNewAssign("Utility Types", 98);
 console.log(tsAssign);
+const assignArguments = ['Something', 45];
+const tsAssignTwo = createNewAssign(...assignArguments);
+console.log(tsAssignTwo);

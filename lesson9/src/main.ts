@@ -100,3 +100,13 @@ type NewAssign = ReturnType<typeof createNewAssign>;
 
 const tsAssign:  NewAssign = createNewAssign("Utility Types", 98);
 console.log(tsAssign);
+
+// Parameters
+
+type AssignParams = Parameters<typeof createNewAssign>;
+
+const assignArguments: AssignParams = ['Something', 45];
+
+const tsAssignTwo: NewAssign = createNewAssign(...assignArguments);
+
+console.log(tsAssignTwo);
