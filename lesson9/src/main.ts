@@ -86,3 +86,17 @@ type americanSports = Extract<Sports, "Baseball" | "Football" | "Basketball">;
 
 type AllPossibleSports = 'Willy' | 'Frank' | null | undefined;
 type NamesOnly = NonNullable<AllPossibleSports>;
+
+// ReturnType
+
+// type newAssign = {title: string, points: number};
+
+const createNewAssign = (title: string, points: number) => {
+  return {title, points};
+}
+
+// newAssign will alwayd be updated if createNewAssign changes
+type NewAssign = ReturnType<typeof createNewAssign>;
+
+const tsAssign:  NewAssign = createNewAssign("Utility Types", 98);
+console.log(tsAssign);
