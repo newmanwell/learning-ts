@@ -75,3 +75,9 @@ const preview: AssignPreview = {
   studentId: "69420",
   title: "lesson 999"
 }
+
+// Exclude and Extract
+
+type removedSports = Exclude<Sports, "Hockey">;
+
+type americanSports = Extract<Sports, "Baseball" | "Football" | "Basketball">;
