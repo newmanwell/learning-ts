@@ -10,8 +10,8 @@ const Counter = ({setCount, children}: CounterProps) => {
   return (
     <>
       <h2>{children}</h2>
-      <button onClick={() => setCount(prev => prev + 1)}>+</button>
-      <button onClick={() => setCount(prev => prev - 1)}>-</button>
+      <button onClick={() => setCount(prev => prev + 1)}>Number +</button>
+      <button onClick={() => setCount(prev => prev - 1)}>Number -</button>
     </>
   )
 }
