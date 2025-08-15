@@ -1,10 +1,10 @@
-
+import Counter from "./Counter"
 
 const  App = () => {
 
   return (
     <>
-      <h1>Hello Universe</h1>
+      <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
     </>
   )
 }
